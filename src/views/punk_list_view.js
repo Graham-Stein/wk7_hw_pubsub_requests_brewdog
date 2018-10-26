@@ -9,7 +9,7 @@ const PunkListView = function(container) {
 PunkListView.prototype.bindEvents = function() {
   PubSub.subscribe('Punk:beers-ready', (event) => {
     this.beers = event.detail;
-    console.log(this.beers);
+    // console.log(this.beers);
     this.render();
   });
 };
@@ -17,6 +17,7 @@ PunkListView.prototype.bindEvents = function() {
 PunkListView.prototype.render = function() {
   this.beers.forEach((beer) => {
     const punkView = new PunkView(this.container, beer);
+    console.log(punkView);
     punkView.render();
   });
 };

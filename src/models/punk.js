@@ -25,6 +25,7 @@ Punk.prototype.handleDataReady = function(beers) {
       tagline: beer.tagline,
       description: beer.description,
       abv: beer.abv,
+      image_url: beer.image_url,
     };
   });
 };
