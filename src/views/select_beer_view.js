@@ -10,12 +10,18 @@ SelectBeerView.prototype.bindEvents = function() {
     const allBeers = event.detail;
     this.populate(allBeers);
   });
+  this.container.addEventListener('change', (event) => {
+    const selectedBeer = event.target.value;
+    console.log('Selected beer is:', selectedBeer);
+    PubSub.publish('SelectBeerView:beer-selected', selectedBeer);
+  });
 };
 // populate method to list all beers from beers array
 SelectBeerView.prototype.populate = function(allBeers) {
-  allBeers.forEach((beer) => {
+  allBeers.forEach((beer, index) => {
     const option = document.createElement('option');
     option.textContent = beer.name;
+    option.value = index;
     this.container.appendChild(option);
   });
 };
