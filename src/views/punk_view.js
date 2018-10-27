@@ -7,7 +7,7 @@ const PunkView = function(container, beer) {
 
 PunkView.prototype.render = function() {
   const topBeerBox = document.createElement('div');
-  topBeerBox.classList.add('TLG', 'grid-row', 'grid-row-md');
+  topBeerBox.classList.add('top-level-grid', 'grid-row', 'grid-row-md');
 
   const beerContainer = document.createElement('div');
   beerContainer.classList.add('grid-row', 'beer', 'grid-row-md');

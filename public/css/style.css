@@ -1,7 +1,10 @@
 body {
   background-color: #2fd0fd;
-  /* background-image: url("https://www.brewdog.com/files/1440777268BREWDOGLOGO.jpg"); */
+  background-image: url("https://www.brewdog.com/files/1440777268BREWDOGLOGO.jpg");
   background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position:bottom;
   opacity: 0.95;
 }
 
@@ -11,14 +14,22 @@ h1 {
   color: #010cfe;
 }
 
-.TLG {
+.main-title {
+  border: solid;
+  border-style: groove;
+  border-color: #22c1a5;
+  border-radius: 20px;
+  background-color: #2fd0fd;
+}
+
+.top-level-grid {
   display: flex;
   flex-direction: row;
   border: solid;
   border-color: #22c1a5;
   border-radius: 5px;
-  padding: 5px;
-  margin: 10px;
+  padding: 15px;
+  margin: 15px;
   background-color: #99ffcc;
 
 
