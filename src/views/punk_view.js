@@ -29,7 +29,6 @@ PunkView.prototype.render = function() {
   const beerPicture = document.createElement('div');
   beerPicture.classList.add('image-div');
   const beerImage = this.createBeerImage();
-  console.log(beerImage);
   beerPicture.appendChild(beerImage);
 
   topBeerBox.appendChild(beerPicture);

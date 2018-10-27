@@ -8,16 +8,18 @@ const PunkListView = function(container) {
 
 PunkListView.prototype.bindEvents = function() {
   PubSub.subscribe('Punk:beers-ready', (event) => {
+    console.log('TEST', event);
     this.beers = event.detail;
-    // console.log(this.beers);
     this.render();
   });
+  // this.container.addEventListener('change', (evt) => {
+  //   console.log('Event listener for beer beerDropdown:', evt);
+  // });
 };
 
 PunkListView.prototype.render = function() {
   this.beers.forEach((beer) => {
     const punkView = new PunkView(this.container, beer);
-    console.log(punkView);
     punkView.render();
   });
 };
