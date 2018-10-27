@@ -6,8 +6,11 @@ const PunkView = function(container, beer) {
 };
 
 PunkView.prototype.render = function() {
+  const topBeerBox = document.createElement('div');
+  topBeerBox.classList.add('TLG', 'grid-row', 'grid-row-md');
+
   const beerContainer = document.createElement('div');
-  beerContainer.classList.add('beer');
+  beerContainer.classList.add('grid-row', 'beer', 'grid-row-md');
 
   const name = this.createNameHeading();
   beerContainer.appendChild(name);
@@ -21,15 +24,22 @@ PunkView.prototype.render = function() {
   const otherInfo = this.createOtherInfoList();
   beerContainer.appendChild(otherInfo);
 
-  const image = this.createBeerImage();
-  beerContainer.appendChild(image);
+  topBeerBox.appendChild(beerContainer);
 
-  this.container.appendChild(beerContainer);
+  const beerPicture = document.createElement('div');
+  beerPicture.classList.add('image-div');
+  const beerImage = this.createBeerImage();
+  console.log(beerImage);
+  beerPicture.appendChild(beerImage);
+
+  topBeerBox.appendChild(beerPicture);
+
+  this.container.appendChild(topBeerBox);
 };
 
 PunkView.prototype.createNameHeading = function() {
   const name = document.createElement('h1');
-  name.classList.add('beer-name');
+  name.classList.add('cell', 'beer-name');
   name.textContent = this.beer.name;
   return name;
 };
@@ -37,21 +47,22 @@ PunkView.prototype.createNameHeading = function() {
 
 PunkView.prototype.createTagLine = function() {
   const tagLine = document.createElement('h4');
-  tagLine.classList.add('tag-line');
+  tagLine.classList.add('cell', 'tag-line');
   tagLine.textContent = this.beer.tagline;
   return tagLine;
 };
 
 PunkView.prototype.createDescription = function() {
   const description = document.createElement('p');
-  description.classList.add('description');
-  description.textContent = this.beer.description;
+  description.classList.add('cell', 'description');
+  description.textContent = `${this.beer.name} description:
+  ${this.beer.description} `;
   return description;
 };
 
 PunkView.prototype.createOtherInfoList = function() {
   const abv = document.createElement('p');
-  abv.classList.add('other-info');
+  abv.classList.add('cell', 'other-info');
   abv.textContent = `ABV: ${this.beer.abv}%`;
   return abv;
 };

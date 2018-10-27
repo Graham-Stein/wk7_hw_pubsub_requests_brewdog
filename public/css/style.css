@@ -1,3 +1,90 @@
 body {
-  background-color: lightblue;
+  background-color: #2fd0fd;
+  /* background-image: url("https://www.brewdog.com/files/1440777268BREWDOGLOGO.jpg"); */
+  background-size: contain;
+  opacity: 0.95;
 }
+
+h1 {
+  text-align: center;
+  font-family: "Palatino body copy";
+  color: #010cfe;
+}
+
+.TLG {
+  display: flex;
+  flex-direction: row;
+  border: solid;
+  border-color: #22c1a5;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+  background-color: #99ffcc;
+
+
+}
+
+.grid-row .beer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-flex-start;
+  align-items: left;
+  /* width: 4fr; */
+  width: 4fr;
+}
+
+.beer-name {
+  /* font-family: "Comic Sans MS"; */
+  border: solid;
+  border-style: groove;
+  border-color: #22c1a5;
+  border-radius: 20px;
+  background-color: #2fd0fd;
+
+}
+
+.tag-line {
+  font-family: "Lucida Sans Unicode";
+}
+
+.description {
+  font-family: "Trebuchet MS";
+}
+
+.other-info {
+
+}
+
+.image-div {
+  display: flex;
+  flex-direction: column;
+  width: 1fr;
+  padding: 10px;
+  align-items: center;
+  /* float: right; */
+  /* height: 20%; */
+}
+
+.beer-image {
+  height: 80%;
+  width: 80%;
+}
+
+.cell {
+  /* flex: 1; */
+  padding: 5px;
+  /* border: solid 1px mediumaquamarine; */
+}
+
+/* .beer-image {
+  size: 100px;
+  /* float: right; */
+/* } */
+
+/* @media all and ( min-width:720px) {
+
+  .grid-row-md {
+    flex-direction: row;
+  }
+
+} */
