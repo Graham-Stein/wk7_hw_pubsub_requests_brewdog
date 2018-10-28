@@ -17,6 +17,10 @@ PunkListView.prototype.bindEvents = function() {
     const punkViewSingle = new PunkView(this.container, chosenBeer);
     punkViewSingle.render();
   });
+  const home = document.querySelector('#home');
+  home.addEventListener('click', (event) => {
+    this.render();
+  });
 };
 
 PunkListView.prototype.render = function() {
