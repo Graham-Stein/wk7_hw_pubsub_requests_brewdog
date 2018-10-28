@@ -4,7 +4,7 @@ const PubSub = {
       detail: payload,
     });
     document.dispatchEvent(event);
-    console.log(`${payload} published on ${channel}`);
+    // console.log(`${payload} published on ${channel}`);
   },
 
   subscribe: function(channel, callback) {
