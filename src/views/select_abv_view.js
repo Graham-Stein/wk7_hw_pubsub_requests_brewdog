@@ -6,16 +6,21 @@ const SelectByABV = function(container) {
 };
 
 SelectByABV.prototype.bindEvents = function() {
-  PubSub.subscribe('Punk:beer-list-ready', (event) => {
+  PubSub.subscribe('Punk:beers-ready', (event) => {
     this.beers = event.detail;
-    console.log('in select by abv', this.beers);
     this.populate();
   });
-  this.container.addEventListener('change', (event) => {
-    console.log(event);
-    // logic to create list of beers with the abv desired
-    // PubSub.publish('SelectABVView:strength-selected', xxxxx);
+  this.container.addEventListener('change', (evt) => {
+    abvCorrect = this.abvFilter(evt.target.value);
+    PubSub.publish('SelectABVView:strength-selected', abvCorrect);
   });
+};
+
+SelectByABV.prototype.abvFilter = function(abv) {
+  filteredBeers = this.beers.filter((beer) => {
+    return beer.abv >= abv;
+  });
+  return filteredBeers;
 };
 SelectByABV.prototype.populate = function() {
   const abvList = [2, 5, 10, 15];

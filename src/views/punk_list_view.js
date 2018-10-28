@@ -8,8 +8,9 @@ const PunkListView = function(container) {
 
 PunkListView.prototype.bindEvents = function() {
   PubSub.subscribe('Punk:beers-ready', (event) => {
+    this.clearView();
     this.beers = event.detail;
-    this.render();
+    this.render(this.beers);
   });
   PubSub.subscribe('SelectBeerView:beer-selected', (event) => {
     this.clearView();
@@ -17,14 +18,20 @@ PunkListView.prototype.bindEvents = function() {
     const punkViewSingle = new PunkView(this.container, chosenBeer);
     punkViewSingle.render();
   });
+  PubSub.subscribe('SelectABVView:strength-selected', (event) => {
+    this.clearView();
+    strongEnoughBeer = event.detail;
+    this.render(strongEnoughBeer);
+  });
   const home = document.querySelector('#home');
   home.addEventListener('click', (event) => {
-    this.render();
+    this.clearView();
+    this.render(this.beers);
   });
 };
 
-PunkListView.prototype.render = function() {
-  this.beers.forEach((beer) => {
+PunkListView.prototype.render = function(beerArr) {
+  beerArr.forEach((beer) => {
     const punkView = new PunkView(this.container, beer);
     punkView.render();
   });
