@@ -12,14 +12,11 @@ PunkListView.prototype.bindEvents = function() {
     this.render();
   });
   PubSub.subscribe('SelectBeerView:beer-selected', (event) => {
-    console.log('are they here too???', this.beers);
-    console.log(this.beers[2]);
-    console.log(event.detail);
-  // CLEAR LIST BEFORE POPULATING!!!!!!!!!!!!!!!
-    const punkViewSingle = new PunkView(this.container, this.beers[event.detail]);
+    this.clearView();
+    const chosenBeer = this.beers[event.detail];
+    const punkViewSingle = new PunkView(this.container, chosenBeer);
     punkViewSingle.render();
   });
-
 };
 
 PunkListView.prototype.render = function() {
@@ -27,6 +24,10 @@ PunkListView.prototype.render = function() {
     const punkView = new PunkView(this.container, beer);
     punkView.render();
   });
+};
+
+PunkListView.prototype.clearView = function() {
+  this.container.innerHTML = '';
 };
 
 module.exports = PunkListView;
